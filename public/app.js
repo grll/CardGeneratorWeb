@@ -13,4 +13,10 @@ var app = angular.module("myApp", ["firebase"]);
 app.controller("Ctrl", function($scope, $firebaseArray) {
   var ref = firebase.database().ref().child("cards");
   $scope.cards = $firebaseArray(ref);
+  $scope.display = function (card) {
+    console.log(card);
+    $("#myModalLabel").html(card.title);
+    $("#myModalBody").html(card.description);
+    $("#myModal").modal('show');
+  }
 });
