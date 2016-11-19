@@ -58,11 +58,11 @@
           </div>
           <div class="form-group">
             <label for="tagFilter">Tags</label>
-            <input type="text" class="form-control" id="tagFilter" ng-model="search.tags">
+            <input type="text" class="form-control" id="tagFilter" ng-model="search.tags" disabled>
           </div>
           <div class="form-group">
             <label for="idFilter">ID</label>
-            <input type="text" class="form-control" id="idFilter" ng-model="search.id">
+            <input type="text" class="form-control" id="idFilter" ng-model="search.$id">
           </div>
           <br>
           <div class="checkbox">
@@ -74,7 +74,7 @@
       </div>
 
       <div class="row top-buffer">
-        <h4 class="text-left"><strong>Cartes <span ng-cloak>({{cards.length}})</span></strong></h4>
+        <h4 class="text-left"><strong>Cartes <span ng-cloak>({{filtered.length}})</span></strong></h4>
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
@@ -82,7 +82,7 @@
               <td><strong>Titre</strong></td>
               <td><strong>Description</strong></td>
             </thead>
-            <tr ng-repeat="card in cards" ng-click="display(card)" ng-cloak>
+            <tr ng-repeat="card in cards | filter:search:strict as filtered" ng-click="display(card)" ng-cloak>
               <th>{{card.$id}}</th>
               <td>{{card.title}}</td>
               <td>{{card.description}}</td>
