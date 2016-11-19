@@ -44,8 +44,25 @@
       <div class="row">
         <h1><strong>EPFLsurvival</strong></h1>
       </div>
-
-      <div class="row">
+      <div class="row text-left top-buffer">
+        <h4><strong>Filtres</strong></h4>
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="globalFilter">Global</label>
+            <input type="text" class="form-control" id="globalFilter" ng-model="search.$">
+          </div>
+          <div class="form-group">
+            <label for="tagFilter">Tags</label>
+            <input type="text" class="form-control" id="tagFilter" ng-model="search.tags">
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="strict"> Strictement Egale
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="row top-buffer">
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
