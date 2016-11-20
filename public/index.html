@@ -62,7 +62,7 @@
           </div>
           <div class="form-group">
             <label for="idFilter">ID</label>
-            <input type="text" class="form-control" id="idFilter" ng-model="search.$id">
+            <input type="text" class="form-control" id="idFilter" ng-model="search.$id" disabled>
           </div>
           <br>
           <div class="checkbox">
@@ -79,13 +79,21 @@
           <table class="table table-striped">
             <thead>
               <th><strong>#</strong></th>
-              <td><strong>Titre</strong></td>
-              <td><strong>Description</strong></td>
+              <td><strong>Question</strong></td>
+              <td><strong>Tags</strong></td>
+              <td><strong>Academics</strong></td>
+              <td><strong>Finances</strong></td>
+              <td><strong>Health</strong></td>
+              <td><strong>Social</strong></td>
             </thead>
             <tr ng-repeat="card in cards | filter:search:strict as filtered" ng-click="display(card)" ng-cloak>
-              <th>{{card.$id}}</th>
-              <td>{{card.title}}</td>
-              <td>{{card.description}}</td>
+              <th>{{$index}}</th>
+              <td>{{card.question}}</td>
+              <td>{{card.tag}}</td>
+              <td>{{card.ranges.academics[0]}} - {{card.ranges.academics[1]}}</td>
+              <td>{{card.ranges.finances[0]}} - {{card.ranges.finances[1]}}</td>
+              <td>{{card.ranges.health[0]}} - {{card.ranges.health[1]}}</td>
+              <td>{{card.ranges.social[0]}} - {{card.ranges.social[1]}}</td>
             </tr>
           </table>
         </div>
@@ -100,7 +108,11 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel">Modal title</h4>
             </div>
-            <div class="modal-body" id="myModalBody">
+            <div class="modal-body row text-xs-center" id="myModalBody">
+              <div class="col-xs-6 bg-success"> Answer 1</div>
+              <div class="col-xs-6 bg-info"> Answer 2</div>
+              <div class="col-xs-6 bg-warning"> Answer 3</div>
+              <div class="col-xs-6 bg-danger"> Answer 4</div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>

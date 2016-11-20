@@ -5,3 +5,9 @@ table tr {
 .top-buffer {
   margin-top:20px;
 }
+
+#myModalBody .col-xs-6{
+  width: 48%;
+  padding: 5px;
+  margin: 1%;
+}

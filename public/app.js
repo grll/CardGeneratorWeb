@@ -20,8 +20,23 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
 
   $scope.display = function (card) {
     console.log(card);
-    $("#myModalLabel").html(card.title);
+    $("#myModalLabel").html(card.question);
     $("#myModalBody").html(card.description);
+    var answerDivs = $("#myModalBody > .col-xs-6");
+    for(var i=0; i < 4; i++)
+    {
+      if (card.answers[i])
+      {
+        var strHTML = "card.answers[i].answer <br>";
+        // ajouter les jauges/ commentaires
+        $(answerDivs[i]).html(card.answers[i].answer);
+        $(answerDivs[i]).removeClass("hide");
+      }
+      else
+      {
+        $(answerDivs[i]).addClass("hide");
+      }
+    }
     $("#myModal").modal('show');
   }
 });
