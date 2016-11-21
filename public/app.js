@@ -27,14 +27,17 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
     {
       if (card.answers[i])
       {
-        var strHTML = "card.answers[i].answer <br>";
-        // ajouter les jauges/ commentaires
-        $(answerDivs[i]).html(card.answers[i].answer);
-        $(answerDivs[i]).removeClass("hide");
+        answerDivs.eq(i).find("span").eq(0).html(card.answers[i].answer);
+        var scores = ['academics', 'finances', 'health', 'social'];
+        for(var j=0; j < 4; j++)
+        {
+          answerDivs.eq(i).find(".score").eq(j).html(card.answers[i].changes[scores[j]]);
+        }
+        answerDivs.eq(i).removeClass("hide");
       }
       else
       {
-        $(answerDivs[i]).addClass("hide");
+        answerDivs.eq(i).addClass("hide");
       }
     }
     $("#myModal").modal('show');

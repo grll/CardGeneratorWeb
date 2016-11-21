@@ -11,3 +11,7 @@ table tr {
   padding: 5px;
   margin: 1%;
 }
+
+#myModalBody .col-xs-6 .row{
+  margin-top: 10px;
+}
