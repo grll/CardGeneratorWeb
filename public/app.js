@@ -25,6 +25,16 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
     var answerDivs = $("#myModalBody > .col-xs-6");
     for(var i=0; i < 4; i++)
     {
+      if (card.answers.length <= 2)
+      {
+        answerDivs.eq(2).addClass("hide");
+        answerDivs.eq(3).addClass("hide");
+      }
+      else
+      {
+        answerDivs.eq(2).removeClass("hide");
+        answerDivs.eq(3).removeClass("hide");
+      }
       if (card.answers[i])
       {
         answerDivs.eq(i).find("span").eq(0).html(card.answers[i].answer);
@@ -33,11 +43,11 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
         {
           answerDivs.eq(i).find(".score").eq(j).html(card.answers[i].changes[scores[j]]);
         }
-        answerDivs.eq(i).removeClass("hide");
+        answerDivs.eq(i).css("visibility","visible");
       }
       else
       {
-        answerDivs.eq(i).addClass("hide");
+        answerDivs.eq(i).css("visibility","hidden");
       }
     }
     $("#myModal").modal('show');
