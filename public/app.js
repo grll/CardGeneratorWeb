@@ -37,12 +37,33 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
       }
       if (card.answers[i])
       {
+        // put answer
         answerDivs.eq(i).find("span").eq(0).html(card.answers[i].answer);
+        // put jauges on answer
         var scores = ['academics', 'finances', 'health', 'social'];
         for(var j=0; j < 4; j++)
         {
           answerDivs.eq(i).find(".score").eq(j).html(card.answers[i].changes[scores[j]]);
         }
+        // put comment
+        if (card.answers[i].comment)
+        {
+          answerDivs.eq(i).find(".comment").eq(0).html(card.answers[i].comment);
+        }
+        else
+        {
+          answerDivs.eq(i).find(".comment").eq(0).html("");
+        }
+        // put suite
+        if (card.answers[i].suite)
+        {
+          answerDivs.eq(i).find(".suite").eq(0).html(card.answers[i].suite);
+        }
+        else
+        {
+          answerDivs.eq(i).find(".suite").eq(0).html("Pas de suite...");
+        }
+        // make it visible
         answerDivs.eq(i).css("visibility","visible");
       }
       else
@@ -50,6 +71,10 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
         answerDivs.eq(i).css("visibility","hidden");
       }
     }
+
+    // equalize the height of each answer before displaying:
+    $(".same-height").matchHeight();
+
     $("#myModal").modal('show');
   }
 });

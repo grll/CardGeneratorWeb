@@ -80,7 +80,7 @@
             <thead>
               <th><strong>#</strong></th>
               <td><strong>Question</strong></td>
-              <td><strong>Tags</strong></td>
+              <td><strong>Tag</strong></td>
               <td><strong>Academics</strong></td>
               <td><strong>Finances</strong></td>
               <td><strong>Health</strong></td>
@@ -110,97 +110,146 @@
             </div>
             <div class="modal-body row text-xs-center" id="myModalBody">
 
-              <h4 class="text-left">&nbsp;Réponses</h4>
-              <div class="col-xs-6 bg-success">
-                <span class="answer">Answer 1</span><br>
-                <div class="row">
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-education"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-usd"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-heart-empty"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-thumbs-up"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                </div>
-                <h6 class="text-left">Commentaire:</h6>
-              </div>
-              <div class="col-xs-6 bg-info">
-                <span class="answer">Answer 2</span><br>
-                <div class="row">
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-education"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-usd"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-heart-empty"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-thumbs-up"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                </div>
-                <h6 class="text-left">Commentaire:</h6>
-              </div>
-              <div class="col-xs-6 bg-warning">
-                <span class="answer">Answer 3</span><br>
-                <div class="row">
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-education"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-usd"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-heart-empty"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-thumbs-up"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                </div>
-                <h6 class="text-left">Commentaire:</h6>
-              </div>
-              <div class="col-xs-6 bg-danger">
-                <span class="answer">Answer 4</span><br>
-                <div class="row">
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-education"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-usd"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-heart-empty"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                  <div class="col-xs-3">
-                    <span class="glyphicon glyphicon-thumbs-up"></span><br>
-                    <span class="score">0</span>
-                  </div>
-                </div>
-                <h6 class="text-left">Commentaire:</h6>
+              <div class="col-xs-12">
+                <h4 class="text-left">Réponses</h4>
               </div>
 
-              <h4 class="text-left">&nbsp;Informations</h4>
+              <div class="col-xs-6 bg-success same-height">
+                <strong><span class="answer">Answer 1</span></strong><br>
+                <div class="row">
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-education"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-usd"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-heart-empty"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-thumbs-up"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <h6 class="text-left"><strong>Commentaire:</strong> <span class="comment"></span></h6>
+                </div>
+                <div class="col-xs-12">
+                  <h6 class="text-left"><strong>Suite:</strong> <span class="suite"></span></h6>
+                </div>
+              </div>
+              <div class="col-xs-6 bg-info same-height">
+                <strong><span class="answer">Answer 2</span></strong><br>
+                <div class="row">
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-education"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-usd"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-heart-empty"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-thumbs-up"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <h6 class="text-left"><strong>Commentaire:</strong> <span class="comment"></span></h6>
+                </div>
+                <div class="col-xs-12">
+                  <h6 class="text-left"><strong>Suite:</strong> <span class="suite"></span></h6>
+                </div>
+              </div>
+              <div class="col-xs-6 bg-warning same-height">
+                <strong><span class="answer">Answer 3</span></strong><br>
+                <div class="row">
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-education"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-usd"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-heart-empty"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-thumbs-up"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <h6 class="text-left"><strong>Commentaire:</strong> <span class="comment"></span></h6>
+                </div>
+                <div class="col-xs-12">
+                  <h6 class="text-left"><strong>Suite:</strong> <span class="suite"></span></h6>
+                </div>
+              </div>
+              <div class="col-xs-6 bg-danger same-height">
+                <strong><span class="answer">Answer 4</span></strong><br>
+                <div class="row">
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-education"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-usd"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-heart-empty"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                  <div class="col-xs-3">
+                    <span class="glyphicon glyphicon-thumbs-up"></span><br>
+                    <span class="score">0</span>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <h6 class="text-left"><strong>Commentaire:</strong> <span class="comment"></span></h6>
+                </div>
+                <div class="col-xs-12">
+                  <h6 class="text-left"><strong>Suite:</strong> <span class="suite"></span></h6>
+                </div>
+              </div>
+
+              <div class="col-xs-12">
+                <h4 class="text-left">Informations</h4>
+                <br>
+              </div>
+
+              <div class="col-xs-12 text-left">
+                <div class="media">
+                  <div class="media-left">
+                    <a href="#">
+                      <img class="media-object" src="http://67.media.tumblr.com/6536363dc7ba8276d78dfe88d1eafcd0/tumblr_nrjwdybq221sigvjco1_400.png" alt="test img" height="256" width="256">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <h5 class="media-heading">Date </h5>
+                    <span class="date">Pas de date...</span>
+                    <br>
+                    <br>
+                    <h5 class="media-heading">Section </h5>
+                    <span class="section">Pas de section...</span>
+                    <br>
+                    <br>
+                    <h5 class="media-heading">Période </h5>
+                    <span class="period">Pas de période...</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -221,6 +270,8 @@
     <script src="app.js"></script>
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- matchHeight -->
+    <script src="jquery.matchHeight.js"></script>
     <!-- bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
