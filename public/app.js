@@ -11,6 +11,9 @@ firebase.initializeApp(config);
 var app = angular.module("myApp", ["firebase"]);
 
 app.controller("Ctrl", function($scope, $firebaseArray) {
+  // constants
+  var scores = ['academics', 'finances', 'health', 'social'];
+
   var ref = firebase.database().ref().child("cards");
 
   $scope.cards = $firebaseArray(ref);
@@ -44,7 +47,6 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
         // put answer
         answerDivs.eq(i).find("span").eq(0).html(card.answers[i].answer);
         // put jauges on answer
-        var scores = ['academics', 'finances', 'health', 'social'];
         for(var j=0; j < 4; j++)
         {
           answerDivs.eq(i).find(".score").eq(j).html(card.answers[i].changes[scores[j]]);
@@ -101,6 +103,33 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
         media.find(".loader").eq(0).hide();
         media.find("img").eq(0).show();
       }).attr("src", "no-img.png");
+    }
+    // fill the date
+    if (card.date != -1)
+      media.find(".date").eq(0).html("Jour " + card.date);
+    else
+      media.find(".date").eq(0).html("Pas de date...");
+    // fill the section
+    if (card.section != -1)
+      media.find(".section").eq(0).html(card.section);
+    else
+      media.find(".section").eq(0).html("Pas de section...");
+    // fill the period
+    if (card.period != -1)
+      media.find(".period").eq(0).html(card.period);
+    else
+      media.find(".period").eq(0).html("Pas de période...");
+    // fill tag
+    if (card.tag)
+      media.find(".tag").eq(0).html(card.tag);
+    else
+      media.find(".tag").eq(0).html("Pas de tag...");
+
+    // fill the range
+    var rangesTableTrTd = $("#ranges").find('tr').eq(1).find('td');
+    for (var i=0; i < rangesTableTrTd.length; i++)
+    {
+      rangesTableTrTd.eq(i).html(card.ranges[scores[i]][0] + " - " + card.ranges[scores[i]][1]);
     }
 
     // equalize the height of each answer before displaying:
