@@ -12,17 +12,21 @@ var app = angular.module("myApp", ["firebase"]);
 
 app.controller("Ctrl", function($scope, $firebaseArray) {
   var ref = firebase.database().ref().child("cards");
+
   $scope.cards = $firebaseArray(ref);
 
   $scope.cards.$loaded().then(function() {
-    $("#spinner").addClass("hide");
+    $(".spinner").eq(0).addClass("hide");
   });
 
   $scope.display = function (card) {
     console.log(card);
+
     $("#myModalLabel").html(card.question);
     $("#myModalBody").html(card.description);
     var answerDivs = $("#myModalBody > .col-xs-6");
+    var media = $(".media").eq(0);
+
     for(var i=0; i < 4; i++)
     {
       if (card.answers.length <= 2)
@@ -52,7 +56,7 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
         }
         else
         {
-          answerDivs.eq(i).find(".comment").eq(0).html("");
+          answerDivs.eq(i).find(".comment").eq(0).html("Pas de commentaire...");
         }
         // put suite
         if (card.answers[i].suite)
@@ -70,6 +74,33 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
       {
         answerDivs.eq(i).css("visibility","hidden");
       }
+    }
+    // --- FILL MEDIA DATA ---
+    // fill img
+    if (card.image)
+    {
+
+      media.find("img").eq(0).hide();
+      media.find(".loader").eq(0).show();
+
+      var imgRef = firebase.storage().ref().child("images/" + card.image).getDownloadURL().then(function(url) {
+        media.find("img").eq(0).one("load",function () {
+          media.find(".loader").eq(0).hide();
+          media.find("img").eq(0).show();
+        }).attr("src", url);
+      }).catch(function (error){
+        media.find("img").eq(0).one("load",function () {
+          media.find(".loader").eq(0).hide();
+          media.find("img").eq(0).show();
+        }).attr("src", "img-not-found.png");
+      });
+    }
+    else
+    {
+      media.find("img").eq(0).one("load",function () {
+        media.find(".loader").eq(0).hide();
+        media.find("img").eq(0).show();
+      }).attr("src", "no-img.png");
     }
 
     // equalize the height of each answer before displaying:
