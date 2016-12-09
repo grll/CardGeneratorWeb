@@ -23,7 +23,7 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
   });
 
   $scope.display = function (card) {
-    console.log(card);
+    //console.log(card); for testing
 
     $("#myModalLabel").html(card.question);
     $("#myModalBody").html(card.description);
