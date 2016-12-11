@@ -13,6 +13,8 @@ var app = angular.module("myApp", ["firebase"]);
 app.controller("Ctrl", function($scope, $firebaseArray) {
   // constants
   var scores = ['academics', 'finances', 'health', 'social'];
+  var sections = ['PH', 'MA', 'SCGC', 'GM', 'MT', 'EL', 'MX', 'IN', 'SC', 'GC', 'SIE', 'AR', 'SV'];
+  var periodes = ['Début Semestre 1', 'Milieu Semestre 1', 'Fin Semestre 1', 'Révisions 1', 'Examens 1', 'Vacances', 'Début Semestre 2', 'Milieu Semestre 2', 'Fin Semestre 2', 'Révisions 2', 'Examens 2']
 
   var ref = firebase.database().ref().child("cards");
 
@@ -111,12 +113,12 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
       media.find(".date").eq(0).html("Pas de date...");
     // fill the section
     if (card.section != -1)
-      media.find(".section").eq(0).html(card.section);
+      media.find(".section").eq(0).html(sections[card.section]);
     else
       media.find(".section").eq(0).html("Pas de section...");
     // fill the period
     if (card.period != -1)
-      media.find(".period").eq(0).html(card.period);
+      media.find(".period").eq(0).html(periodes[card.period]);
     else
       media.find(".period").eq(0).html("Pas de période...");
     // fill tag
