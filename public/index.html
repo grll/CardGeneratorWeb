@@ -85,6 +85,7 @@
               <td><strong>Finances</strong></td>
               <td><strong>Health</strong></td>
               <td><strong>Social</strong></td>
+              <td><strong>Image</strong></td>
             </thead>
             <tr class="clickable" ng-repeat="card in cards | filter:search:strict as filtered" ng-click="display(card)" ng-cloak>
               <th>{{$index}}</th>
@@ -94,6 +95,7 @@
               <td>{{card.ranges.finances[0]}} - {{card.ranges.finances[1]}}</td>
               <td>{{card.ranges.health[0]}} - {{card.ranges.health[1]}}</td>
               <td>{{card.ranges.social[0]}} - {{card.ranges.social[1]}}</td>
+              <td>{{card.img_status}}</td>
             </tr>
           </table>
         </div>

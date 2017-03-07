@@ -22,6 +22,13 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
 
   $scope.cards.$loaded().then(function() {
     $(".spinner").eq(0).addClass("hide");
+    for (var i=0; i < $scope.cards.length; i++) {
+      if($scope.cards[i].image)
+        $scope.cards[i].img_status = "yes";
+      else
+        $scope.cards[i].img_status = "no";
+    }
+    console.log($scope.cards);
   });
 
   $scope.display = function (card) {
