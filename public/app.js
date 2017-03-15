@@ -23,6 +23,7 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
   $scope.cards.$loaded().then(function() {
     $(".spinner").eq(0).addClass("hide");
     for (var i=0; i < $scope.cards.length; i++) {
+      //$scope.cards[i].new_img_url = $scope.cards[i].image;
       if($scope.cards[i].image)
         $scope.cards[i].img_status = "yes";
       else
@@ -145,5 +146,13 @@ app.controller("Ctrl", function($scope, $firebaseArray) {
     $(".same-height").matchHeight();
 
     $("#myModal").modal('show');
+  }
+
+  $scope.add_img_url = function(id) {
+    var card = $scope.cards.$getRecord(id);
+    console.log(card)
+    $scope.cards.$save(card).then(function() {
+      alert('saved');
+    });
   }
 });

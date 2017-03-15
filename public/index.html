@@ -83,6 +83,7 @@
           <table class="table table-striped">
             <thead>
               <th><strong>#</strong></th>
+              <th><strong>ID Firebase</strong></th>
               <td><strong>Question</strong></td>
               <td><strong>Tag</strong></td>
               <td><strong>Academics</strong></td>
@@ -90,16 +91,26 @@
               <td><strong>Health</strong></td>
               <td><strong>Social</strong></td>
               <td><strong>Image</strong></td>
+              <td><strong>Changer le lien</strong></td>
             </thead>
-            <tr class="clickable" ng-repeat="card in cards | filter:search:strict as filtered" ng-click="display(card)" ng-cloak>
-              <th>{{$index}}</th>
-              <td>{{card.question}}</td>
-              <td>{{card.tag}}</td>
-              <td>{{card.ranges.academics[0]}} - {{card.ranges.academics[1]}}</td>
-              <td>{{card.ranges.finances[0]}} - {{card.ranges.finances[1]}}</td>
-              <td>{{card.ranges.health[0]}} - {{card.ranges.health[1]}}</td>
-              <td>{{card.ranges.social[0]}} - {{card.ranges.social[1]}}</td>
-              <td>{{card.img_status}}</td>
+            <tr ng-repeat="card in cards | filter:search:strict as filtered" ng-cloak>
+              <th class="clickable" ng-click="display(card)">{{$index}}</th>
+              <td class="clickable" ng-click="display(card)">{{card.$id}}</td>
+              <td class="clickable" ng-click="display(card)">{{card.question}}</td>
+              <td class="clickable" ng-click="display(card)">{{card.tag}}</td>
+              <td class="clickable" ng-click="display(card)">{{card.ranges.academics[0]}} - {{card.ranges.academics[1]}}</td>
+              <td class="clickable" ng-click="display(card)">{{card.ranges.finances[0]}} - {{card.ranges.finances[1]}}</td>
+              <td class="clickable" ng-click="display(card)">{{card.ranges.health[0]}} - {{card.ranges.health[1]}}</td>
+              <td class="clickable" ng-click="display(card)">{{card.ranges.social[0]}} - {{card.ranges.social[1]}}</td>
+              <td class="clickable" ng-click="display(card)">{{card.img_status}}</td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Images url..." ng-model="card.image">
+                  <span class="input-group-btn">
+                    <button ng-click="add_img_url(card.$id)" class="btn btn-default" type="button">Go!</button>
+                  </span>
+                </div>
+              </td>
             </tr>
           </table>
         </div>
@@ -285,13 +296,12 @@
       </div>
     </div>
 
-
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
     <!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
     <!-- app.js -->
     <script src="app.js"></script>
     <!-- jquery -->
@@ -300,5 +310,6 @@
     <script src="jquery.matchHeight.js"></script>
     <!-- bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </body>
 </html>
